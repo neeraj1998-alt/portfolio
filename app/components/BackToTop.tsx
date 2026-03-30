@@ -17,14 +17,14 @@ export default function BackToTop() {
     <AnimatePresence>
       {visible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-6 z-50 p-3 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-110 transition-transform duration-200"
+          className="fixed bottom-8 right-6 z-50 p-2.5 rounded-lg bg-[#0f0f1a] border border-white/[0.08] hover:border-[#00d4aa]/40 text-white/40 hover:text-[#00d4aa] transition-all duration-200"
           aria-label="Back to top"
         >
-          <HiArrowUp size={20} />
+          <HiArrowUp size={16} />
         </motion.button>
       )}
     </AnimatePresence>

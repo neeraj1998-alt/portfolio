@@ -1,67 +1,39 @@
 "use client";
 
 import FadeInSection from "./FadeInSection";
-import { motion } from "framer-motion";
 
 const skillGroups = [
-  {
-    category: "Mobile",
-    color: "from-indigo-500 to-purple-500",
-    skills: ["Flutter", "Dart"],
-  },
-  {
-    category: "Languages",
-    color: "from-purple-500 to-pink-500",
-    skills: ["Dart", "Java", "C", "C++"],
-  },
-  {
-    category: "Frontend",
-    color: "from-pink-500 to-rose-500",
-    skills: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    category: "Backend & DB",
-    color: "from-cyan-500 to-indigo-500",
-    skills: ["Firebase", "REST APIs", "PostgreSQL", "MySQL"],
-  },
-  {
-    category: "Tools",
-    color: "from-emerald-500 to-cyan-500",
-    skills: ["Git", "GitHub", "Android Studio", "VS Code"],
-  },
+  { category: "Mobile", skills: ["Flutter", "Dart"] },
+  { category: "Languages", skills: ["Java", "C", "C++"] },
+  { category: "Frontend", skills: ["HTML", "CSS", "JavaScript"] },
+  { category: "Backend & DB", skills: ["Firebase", "REST APIs", "PostgreSQL", "MySQL"] },
+  { category: "Tools", skills: ["Git", "GitHub", "Android Studio", "VS Code"] },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-white/[0.02]">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="relative z-10 py-28 px-6 sm:px-10">
+      <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <p className="text-indigo-400 text-sm font-semibold tracking-widest uppercase text-center mb-2">
-            What I work with
-          </p>
-          <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
+          <p className="text-[#00d4aa] text-xs font-mono tracking-widest uppercase mb-3">Skills</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">What I work with</h2>
         </FadeInSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-8">
           {skillGroups.map((group, gi) => (
-            <FadeInSection key={group.category} delay={gi * 0.1}>
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300">
-                <div className={`text-sm font-bold mb-4 bg-gradient-to-r ${group.color} bg-clip-text text-transparent uppercase tracking-wider`}>
+            <FadeInSection key={group.category} delay={gi * 0.07}>
+              <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3">
+                <span className="text-xs font-mono text-white/20 uppercase tracking-widest w-28 shrink-0">
                   {group.category}
-                </div>
+                </span>
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill, si) => (
-                    <motion.span
+                  {group.skills.map((skill) => (
+                    <span
                       key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: gi * 0.1 + si * 0.05 }}
-                      whileHover={{ scale: 1.08 }}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r ${group.color} bg-opacity-10 text-white border border-white/10 cursor-default`}
+                      className="text-sm px-3 py-1.5 rounded-md bg-[#0f0f1a] border border-white/[0.08] text-white/60 hover:text-white hover:border-[#00d4aa]/30 transition-all duration-200 cursor-default"
                     >
                       {skill}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>

@@ -5,103 +5,66 @@ import FadeInSection from "./FadeInSection";
 
 const experiences = [
   {
-    role: "Frontend Developer / Web Developer",
+    role: "Frontend Developer",
     company: "Astratechai",
     period: "Jun 2025 – Jul 2025",
-    color: "from-indigo-500 to-purple-500",
     points: [
-      "Built a real-time chat application using JavaScript and REST APIs",
-      "Improved application performance by 30% through optimization techniques",
-      "Created reusable UI components to accelerate development workflow",
-      "Implemented robust state management for complex UI interactions",
+      "Built a real-time chat app using JavaScript and REST APIs",
+      "Improved application performance by 30%",
+      "Created reusable UI components",
+      "Implemented state management for complex interactions",
     ],
   },
   {
     role: "Flutter App Developer",
     company: "AICTE",
     period: "Jun 2024 – Jul 2024",
-    color: "from-purple-500 to-pink-500",
     points: [
-      "Built a vehicle repair service application using Flutter & Dart",
-      "Improved UI responsiveness and overall user experience",
-      "Integrated Firebase for real-time data and authentication",
-      "Connected REST APIs for dynamic content and service management",
+      "Built a vehicle repair service app using Flutter & Dart",
+      "Improved UI responsiveness and user experience",
+      "Integrated Firebase for auth and real-time data",
+      "Connected REST APIs for dynamic content",
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="relative z-10 py-28 px-6 sm:px-10">
+      <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <p className="text-indigo-400 text-sm font-semibold tracking-widest uppercase text-center mb-2">
-            My Journey
-          </p>
-          <h2 className="text-4xl font-bold text-center mb-16">Experience</h2>
+          <p className="text-[#00d4aa] text-xs font-mono tracking-widest uppercase mb-3">Experience</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">Where I&apos;ve worked</h2>
         </FadeInSection>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-purple-500/50 to-transparent md:-translate-x-px" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, i) => (
-              <FadeInSection key={exp.company} delay={i * 0.15}>
-                <div
-                  className={`relative flex flex-col md:flex-row gap-6 ${
-                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* Dot */}
-                  <div className="absolute left-4 md:left-1/2 top-6 w-3 h-3 rounded-full bg-indigo-500 border-2 border-[#0a0a0f] md:-translate-x-1.5 z-10" />
-
-                  {/* Card */}
-                  <motion.div
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    transition={{ duration: 0.2 }}
-                    className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
-                      i % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-                    }`}
-                  >
-                    <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-indigo-500/40 transition-all duration-300">
-                      <div
-                        className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${exp.color}`}
-                      />
-                      <div className="flex items-start justify-between mb-3">
-                        <div>
-                          <h3 className="font-bold text-white text-lg">
-                            {exp.role}
-                          </h3>
-                          <p
-                            className={`text-sm font-semibold bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}
-                          >
-                            {exp.company}
-                          </p>
-                        </div>
-                        <span className="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap ml-2">
-                          {exp.period}
-                        </span>
-                      </div>
-                      <ul className="space-y-2">
-                        {exp.points.map((pt) => (
-                          <li
-                            key={pt}
-                            className="text-sm text-gray-400 flex gap-2"
-                          >
-                            <span className="text-indigo-400 mt-0.5 shrink-0">
-                              ▸
-                            </span>
-                            {pt}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
+        <div className="space-y-4">
+          {experiences.map((exp, i) => (
+            <FadeInSection key={exp.company} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+                className="group p-6 rounded-xl bg-[#0f0f1a] border border-white/[0.07] hover:border-[#00d4aa]/25 transition-all duration-300"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">{exp.role}</h3>
+                    <p className="text-[#00d4aa] text-sm font-mono">{exp.company}</p>
+                  </div>
+                  <span className="text-xs text-white/25 font-mono bg-white/[0.04] px-3 py-1 rounded">
+                    {exp.period}
+                  </span>
                 </div>
-              </FadeInSection>
-            ))}
-          </div>
+                <ul className="space-y-1.5">
+                  {exp.points.map((pt) => (
+                    <li key={pt} className="text-sm text-white/40 flex gap-2.5">
+                      <span className="text-[#00d4aa]/50 mt-0.5 shrink-0">—</span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </FadeInSection>
+          ))}
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export default function Loader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1800);
+    const t = setTimeout(() => setLoading(false), 1400);
     return () => clearTimeout(t);
   }, []);
 
@@ -17,24 +17,24 @@ export default function Loader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a0a0f]"
+          transition={{ duration: 0.4 }}
+          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#080810]"
         >
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6"
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="text-2xl font-mono font-bold text-white tracking-tight"
           >
-            NKM
-          </motion.div>
-          <div className="flex gap-1.5">
+            nkm<span className="text-[#00d4aa]">.</span>
+          </motion.p>
+          <div className="flex gap-1 mt-4">
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 0.6, delay: i * 0.15, repeat: Infinity }}
-                className="w-2 h-2 rounded-full bg-indigo-500"
+                animate={{ opacity: [0.2, 1, 0.2] }}
+                transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
+                className="w-1 h-1 rounded-full bg-[#00d4aa]"
               />
             ))}
           </div>
