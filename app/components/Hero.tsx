@@ -2,107 +2,86 @@
 
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { HiArrowDown } from "react-icons/hi";
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+const f = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center z-10"
-    >
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full pt-24 pb-16">
+    <section id="hero" className="relative z-10 min-h-screen flex flex-col justify-end pb-20 px-6 sm:px-12">
+      <div className="max-w-6xl mx-auto w-full">
 
-        <motion.p
-          {...fadeUp(0.05)}
-          className="text-[#00d4aa] text-sm font-mono tracking-widest uppercase mb-6"
+        {/* Large background number — editorial touch */}
+        <div
+          aria-hidden
+          className="absolute top-1/2 right-6 sm:right-12 -translate-y-1/2 text-[22vw] font-bold text-[#e8e3dc]/[0.025] select-none leading-none pointer-events-none"
         >
-          Flutter Developer · SIH 2025 Grand Finalist
+          01
+        </div>
+
+        <motion.p {...f(0.1)} className="text-[#e8a045] text-xs font-mono tracking-[0.2em] uppercase mb-8">
+          Flutter Developer &nbsp;·&nbsp; SIH 2025 Grand Finalist
         </motion.p>
 
         <motion.h1
-          {...fadeUp(0.15)}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.08] tracking-tight text-white mb-6"
+          {...f(0.22)}
+          className="text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.95] tracking-[-0.03em] text-[#e8e3dc] mb-8"
         >
-          Neeraj Kumar
-          <br />
-          <span className="text-white/40">Mishra.</span>
+          Neeraj Kumar<br />
+          <span className="text-[#e8e3dc]">Mishra.</span>
         </motion.h1>
 
-        <motion.p
-          {...fadeUp(0.28)}
-          className="text-gray-400 text-lg max-w-xl leading-relaxed mb-10"
-        >
-          I build fast, polished cross-platform apps with Flutter &amp; Dart.
-          Focused on clean architecture, smooth UX, and shipping things that work.
+        <motion.p {...f(0.36)} className="text-[#e8e3dc]/45 text-base sm:text-lg max-w-lg leading-relaxed mb-12 font-light">
+          I build fast, polished cross-platform mobile apps with Flutter &amp; Dart.
+          Clean architecture, smooth UX, real-world impact.
         </motion.p>
 
-        <motion.div
-          {...fadeUp(0.4)}
-          className="flex flex-wrap gap-3 mb-14"
-        >
+        <motion.div {...f(0.48)} className="flex flex-wrap items-center gap-4 mb-16">
           <a
             href="#projects"
-            className="px-6 py-2.5 rounded-md bg-[#00d4aa] text-[#080810] text-sm font-semibold hover:bg-[#00bfa0] transition-colors duration-200"
+            className="px-7 py-3 bg-[#e8a045] text-[#0c0c0c] text-sm font-semibold tracking-wide hover:bg-[#d4913a] transition-colors duration-200"
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className="px-6 py-2.5 rounded-md border border-white/15 text-white/70 text-sm font-medium hover:border-white/30 hover:text-white transition-all duration-200"
+            className="px-7 py-3 border border-[#e8e3dc]/15 text-[#e8e3dc]/50 text-sm tracking-wide hover:border-[#e8e3dc]/30 hover:text-[#e8e3dc]/80 transition-all duration-200"
           >
             Contact Me
           </a>
           <a
             href="/Neeraj_Kumar_Mishra.pdf"
             download
-            className="px-6 py-2.5 rounded-md border border-white/15 text-white/70 text-sm font-medium hover:border-white/30 hover:text-white transition-all duration-200"
+            className="px-7 py-3 border border-[#e8e3dc]/15 text-[#e8e3dc]/50 text-sm tracking-wide hover:border-[#e8e3dc]/30 hover:text-[#e8e3dc]/80 transition-all duration-200"
           >
             Resume ↓
           </a>
         </motion.div>
 
-        <motion.div
-          {...fadeUp(0.5)}
-          className="flex items-center gap-5"
-        >
+        <motion.div {...f(0.58)} className="flex items-center gap-6">
           <a
             href="https://www.linkedin.com/in/neeraj1k98"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/30 hover:text-[#00d4aa] transition-colors duration-200"
+            target="_blank" rel="noopener noreferrer"
+            className="text-[#e8e3dc]/20 hover:text-[#e8a045] transition-colors duration-300"
             aria-label="LinkedIn"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={18} />
           </a>
           <a
             href="https://github.com/neeraj1998-alt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/30 hover:text-[#00d4aa] transition-colors duration-200"
+            target="_blank" rel="noopener noreferrer"
+            className="text-[#e8e3dc]/20 hover:text-[#e8a045] transition-colors duration-300"
             aria-label="GitHub"
           >
-            <FaGithub size={20} />
+            <FaGithub size={18} />
           </a>
-          <span className="text-white/10 text-sm ml-2">mishrampu@gmail.com</span>
+          <div className="h-px w-12 bg-[#e8e3dc]/10" />
+          <span className="text-[#e8e3dc]/15 text-xs font-mono tracking-wide">mishrampu@gmail.com</span>
         </motion.div>
       </div>
-
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 6, 0] }}
-        transition={{ delay: 1.2, duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 left-10 text-white/20 hover:text-[#00d4aa] transition-colors"
-        aria-label="Scroll down"
-      >
-        <HiArrowDown size={20} />
-      </motion.a>
     </section>
   );
 }

@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import { HiArrowRight } from "react-icons/hi";
 import FadeInSection from "./FadeInSection";
 
 const projects = [
   {
+    index: "01",
     title: "Sarthi",
     subtitle: "Mental Wellness Companion",
     description:
@@ -16,6 +16,7 @@ const projects = [
     badge: "SIH 2025 Grand Finalist",
   },
   {
+    index: "02",
     title: "Vehicle Repair",
     subtitle: "Service Booking App",
     description:
@@ -28,56 +29,49 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative z-10 py-28 px-6 sm:px-10">
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="relative z-10 py-32 px-6 sm:px-12 border-t border-[#e8e3dc]/[0.06]">
+      <div className="max-w-6xl mx-auto">
         <FadeInSection>
-          <p className="text-[#00d4aa] text-xs font-mono tracking-widest uppercase mb-3">Projects</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">What I&apos;ve built</h2>
+          <p className="text-[#e8a045] text-xs font-mono tracking-[0.2em] uppercase mb-4">Projects</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#e8e3dc] tracking-tight mb-16">Selected work</h2>
         </FadeInSection>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-px bg-[#e8e3dc]/[0.06]">
           {projects.map((project, i) => (
             <FadeInSection key={project.title} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -4 }}
+                whileHover={{ backgroundColor: "#141414" }}
                 transition={{ duration: 0.2 }}
-                className="group h-full flex flex-col p-6 rounded-xl bg-[#0f0f1a] border border-white/[0.07] hover:border-[#00d4aa]/25 transition-all duration-300"
+                className="group bg-[#0c0c0c] p-8 flex flex-col h-full min-h-[360px]"
               >
-                <div className="flex items-start justify-between mb-1">
-                  <h3 className="text-white font-bold text-xl">{project.title}</h3>
-                  <span className="text-[10px] text-[#00d4aa]/60 font-mono bg-[#00d4aa]/[0.07] border border-[#00d4aa]/15 px-2 py-0.5 rounded ml-3 whitespace-nowrap">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="font-mono text-xs text-[#e8e3dc]/15">{project.index}</span>
+                  <span className="text-[10px] font-mono text-[#e8a045]/50 border border-[#e8a045]/15 px-2 py-0.5 tracking-wide">
                     {project.badge}
                   </span>
                 </div>
-                <p className="text-white/30 text-sm mb-4">{project.subtitle}</p>
-                <p className="text-white/50 text-sm leading-relaxed mb-5 flex-1">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-5">
+
+                <h3 className="text-[#e8e3dc] font-bold text-2xl mb-1">{project.title}</h3>
+                <p className="text-[#e8e3dc]/25 text-sm mb-5">{project.subtitle}</p>
+                <p className="text-[#e8e3dc]/45 text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
+
+                <div className="flex flex-wrap gap-1.5 mb-6">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs px-2.5 py-1 rounded bg-white/[0.04] border border-white/[0.07] text-white/40 font-mono">
+                    <span key={tag} className="text-xs px-2 py-1 border border-[#e8e3dc]/[0.07] text-[#e8e3dc]/30 font-mono">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white transition-colors"
-                  >
-                    <FaGithub size={13} /> GitHub
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs text-[#00d4aa]/60 hover:text-[#00d4aa] transition-colors ml-auto"
-                  >
-                    View <HiArrowRight size={12} />
-                  </a>
-                </div>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs text-[#e8e3dc]/30 hover:text-[#e8a045] transition-colors duration-200 w-fit"
+                >
+                  <FaGithub size={13} />
+                  View on GitHub
+                </a>
               </motion.div>
             </FadeInSection>
           ))}

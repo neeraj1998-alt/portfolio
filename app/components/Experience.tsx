@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
 import FadeInSection from "./FadeInSection";
 
 const experiences = [
   {
+    index: "01",
     role: "Frontend Developer",
     company: "Astratechai",
-    period: "Jun 2025 – Jul 2025",
+    period: "Jun – Jul 2025",
     points: [
       "Built a real-time chat app using JavaScript and REST APIs",
       "Improved application performance by 30%",
@@ -16,9 +16,10 @@ const experiences = [
     ],
   },
   {
+    index: "02",
     role: "Flutter App Developer",
     company: "AICTE",
-    period: "Jun 2024 – Jul 2024",
+    period: "Jun – Jul 2024",
     points: [
       "Built a vehicle repair service app using Flutter & Dart",
       "Improved UI responsiveness and user experience",
@@ -30,39 +31,34 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative z-10 py-28 px-6 sm:px-10">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="relative z-10 py-32 px-6 sm:px-12 border-t border-[#e8e3dc]/[0.06]">
+      <div className="max-w-6xl mx-auto">
         <FadeInSection>
-          <p className="text-[#00d4aa] text-xs font-mono tracking-widest uppercase mb-3">Experience</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">Where I&apos;ve worked</h2>
+          <p className="text-[#e8a045] text-xs font-mono tracking-[0.2em] uppercase mb-4">Experience</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#e8e3dc] tracking-tight mb-16">Where I&apos;ve worked</h2>
         </FadeInSection>
 
-        <div className="space-y-4">
+        <div className="space-y-0">
           {experiences.map((exp, i) => (
             <FadeInSection key={exp.company} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="group p-6 rounded-xl bg-[#0f0f1a] border border-white/[0.07] hover:border-[#00d4aa]/25 transition-all duration-300"
-              >
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                  <div>
-                    <h3 className="text-white font-semibold text-lg">{exp.role}</h3>
-                    <p className="text-[#00d4aa] text-sm font-mono">{exp.company}</p>
+              <div className="group grid md:grid-cols-[80px_1fr_160px] gap-6 py-10 border-b border-[#e8e3dc]/[0.06] hover:border-[#e8a045]/20 transition-colors duration-300">
+                <span className="font-mono text-xs text-[#e8e3dc]/15 pt-1">{exp.index}</span>
+                <div>
+                  <div className="flex flex-wrap items-baseline gap-3 mb-5">
+                    <h3 className="text-[#e8e3dc] font-semibold text-lg">{exp.role}</h3>
+                    <span className="text-[#e8a045] text-sm font-mono">@ {exp.company}</span>
                   </div>
-                  <span className="text-xs text-white/25 font-mono bg-white/[0.04] px-3 py-1 rounded">
-                    {exp.period}
-                  </span>
+                  <ul className="space-y-2">
+                    {exp.points.map((pt) => (
+                      <li key={pt} className="text-sm text-[#e8e3dc]/35 flex gap-3">
+                        <span className="text-[#e8a045]/40 shrink-0 mt-0.5">→</span>
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-1.5">
-                  {exp.points.map((pt) => (
-                    <li key={pt} className="text-sm text-white/40 flex gap-2.5">
-                      <span className="text-[#00d4aa]/50 mt-0.5 shrink-0">—</span>
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+                <span className="text-xs font-mono text-[#e8e3dc]/20 md:text-right pt-1">{exp.period}</span>
+              </div>
             </FadeInSection>
           ))}
         </div>
